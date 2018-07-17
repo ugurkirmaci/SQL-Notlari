@@ -9,29 +9,29 @@ Veri Tipleri
 -> real , double pericision - real sayıları tutma durumu
 -> float(n)
 * genele olarak hepsi hafızada  tutmak için kullanılır.
-
+------------------------------------------------------------------------------------------------
 ex: müşteri tablosu oluştururken 
 
 create table r(A1 D1, A2 D2,.., An Dn)-integrity-constraint
 
 ex: create table branch
 (branch name char (15)not null,branch_city char(30) assets integer)
-
+------------------------------------------------------------------------------------------------
 Integritty Contraint 
 * not null
 * primary key (A1,....,An) - doğrudan yaptığınız bişeye doğrudan ulaşmak
 primary key ler her zaman not null olur ve sadece eşi benzeri olamayn yerlerde kullanılır.
-
+------------------------------------------------------------------------------------------------
 Taplonun Silinmesi ve Değiştirilmesi
 * drop table 
 * alter table 
  tablodan sileme ve eklemek için kullanılır.
-
+------------------------------------------------------------------------------------------------
  Sorgular
  * select - A1,A2,...,An - hangi ettiribiyut'ların dönmesini istediğimizi yazarız. 
  * from - r1,r2,..., rm- hangi tablolardan dönmesini istediğimizi yazarız. 
  * where - P-  koşuları belirliyoruz
-
+------------------------------------------------------------------------------------------------
 Distinct ve All kelimeleri...
  
 * distinct - tekrarları at sonucu özet şeklinde göster.
@@ -39,7 +39,7 @@ Distinct ve All kelimeleri...
 * select all - tüm olanakları göster.
 * select start *- tüm verilerin gelemsini sağlar.
 * from loan 
-
+------------------------------------------------------------------------------------------------
 Koşullar......
 * select loan_number 
 ex:from loan 
@@ -52,25 +52,26 @@ ex: select loan_number
 
 
 
-
+------------------------------------------------------------------------------------------------
 Join Örnekleri
 select customer_name,borrower.loan_number,amount
 	from borrower,loan
 	where borrower.loan_number=loan.loan_number and 
 		branch_name ='Perryridge'
-
+------------------------------------------------------------------------------------------------
 İsim Değiştirme
 
 *old-name as new-name 
 ex: select customer_name ,borrower.loan_number as loan_id,amount
 	from borrower_loan
 	where borrower.loan_number =loan.loan_number
-
+------------------------------------------------------------------------------------------------
 Satır Değişkenleri
 Mantık kolona isim vermedir.
 seelct customer_name,T,loan_number, S.amount
 	from borrower as T, loan as S  //kodda kullanılan as 'ler ile isim değişikliği yapılması sağlanır.
 	where T.loan_number= S.loan_number 
+------------------------------------------------------------------------------------------------	
 Dizgi İşlemleri
 
 * percent(%)// herşey anlamında kullanılır.
@@ -79,12 +80,13 @@ Dizgi İşlemleri
 Sıralama
 * order by// neye göre sıralarken bir şeyi bu veri kullanılır.
 	ex: order by customer_name desc şeklinde kullanılır. 
+------------------------------------------------------------------------------------------------	
 Küme Operetörleri 
 
 * union- tek bir tablo haline getirir.
 * intersect- hem borç alan hem borç alanları görmek için kullanılır örnek olarak
 * expect- küme farkı alınır. 
-
+------------------------------------------------------------------------------------------------
 Aggregate(toparlama) Fonksiyonları
 
 * avg- ortalaması alınması ex: select avg(balance)
@@ -98,18 +100,18 @@ Aggregate(toparlama) Fonksiyonları
 			from depositor
 
 	//	kaç müşteri var onu çıkartır.	
-	
+------------------------------------------------------------------------------------------------	
 Group By
 
 * her bir şube ismi için bi tane satir olucak ve onları gruplamak için 
 * group by branch_name şeklinde kullanılır.
 * şart asahip olanlar anlamında da -> having avg komutu kullanılır.
-
+------------------------------------------------------------------------------------------------
 Null Values and Three Valued Logic
 
 *Any comparison with null retuns unknow 
 ex: 5> null or nul <> null or nul = null
-
+------------------------------------------------------------------------------------------------
 Null Values and Aggregates 
 
 * eyer kodda aggregates varsa null olanları kul etmiyor
